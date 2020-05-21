@@ -1,0 +1,1 @@
+﻿# FingerPrintAFIS based on mfc.refer to the project:https://github.com/CasterWx/MFC-FingerPrint.git 
