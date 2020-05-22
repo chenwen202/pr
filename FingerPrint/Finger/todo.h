@@ -174,7 +174,7 @@ int HistoNormalize(unsigned char* ucImg,unsigned char* ucNormImg, int iWidth,int
 	return 0;
 }
 
-
+//refer to doc/Comparing of Several Algorithms of Fingerprint Directional Map
 int ImgDirection(unsigned char* ucImg,float* fDirc,int iWidth,int iHeight) {
 	const int SEMISIZ = 7;
 	int dx[SEMISIZ * 2 + 1][SEMISIZ * 2 + 1];
@@ -209,8 +209,6 @@ int ImgDirection(unsigned char* ucImg,float* fDirc,int iWidth,int iHeight) {
 	return 0;
 }
 
-
-
 int DircLowPass(float *fDirc,float* fFitDirc,int iWidth,int iHeight) {
 	const int DIR_FILTER_SIZE = 2;
 	int blocksize = 2 * DIR_FILTER_SIZE + 1;
@@ -241,6 +239,7 @@ int DircLowPass(float *fDirc,float* fFitDirc,int iWidth,int iHeight) {
 	}
 	memset(phi2x, 0, sizeof(float)*imgsize);
 	memset(phi2y, 0, sizeof(float)*imgsize);
+
 	float nx, ny;
 	int val;
 	for (int y = 0; y < iHeight - blocksize; y++) {
@@ -266,6 +265,7 @@ int DircLowPass(float *fDirc,float* fFitDirc,int iWidth,int iHeight) {
 			fFitDirc[val] = atan2(phi2y[val],phi2x[val])*0.5;
 		}
 	}
+
 	delete[] phi2y;
 	delete[] phi2x;
 	delete[] phiy;
